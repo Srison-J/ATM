@@ -1,0 +1,60 @@
+#include<stdio.h>
+int main(){
+    float Tot_amt, amt, Transfer=0, Deposite=0, Withdraw=0;
+    int pin, pwd, choice;
+    
+    printf("Enter the password: ");
+    scanf("%d", &pwd);
+    printf("Enter the amount to create account: ");
+    scanf("%f", &amt);
+    printf(" \n For Deposite enter 1\n For withdraw enter 2" 
+         "\n For transfer enter 3 \n To check BALANCE enter 4\n Enter: ");
+    scanf("%d", &choice);
+    printf("Enter the pin to process: ");
+    scanf("%d", &pin);
+    
+    if(pin==pwd){
+        
+        switch(choice){
+ 
+            case 1: 
+                printf("Enter the amount to deposite: ");
+                scanf("%f", &Deposite);
+                Tot_amt=(amt+Deposite) - (Transfer+Withdraw);
+                printf("Your BALANCE: %f", Tot_amt);
+                break;
+                
+            case 2: 
+                printf("Enter the amount to withdraw: ");
+                scanf("%f", &Withdraw);
+                Tot_amt=(amt+Deposite) - (Transfer+Withdraw);
+                if(Tot_amt<0){
+                    printf("There is Insufficient amount");
+                }
+                else{
+                printf("Your BALANCE: %f", Tot_amt);
+                }
+                break;
+            case 3: 
+                printf("Enter the amout to transfer: ");
+                scanf("%f", &Transfer);
+                Tot_amt=(amt+Deposite) - (Transfer+Withdraw);
+                if(Tot_amt<0){
+                    printf("There is Insufficient amount");
+                }
+                else{
+                printf("Your BALANCE: %f", Tot_amt);
+                }
+                break;
+            case 4: 
+                Tot_amt=(amt+Deposite) - (Transfer+Withdraw);
+                printf("Your BALANCE: %f", Tot_amt);
+                break;
+    }
+    }
+    
+    else{
+        printf("Pls provide the correct pin to process");
+    }
+    //printf("Your Balance: %f", Tot_amt);
+}
